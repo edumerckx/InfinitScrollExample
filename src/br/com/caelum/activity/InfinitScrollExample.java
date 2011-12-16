@@ -28,12 +28,12 @@ public class InfinitScrollExample extends Activity {
 		
 		new LazyScroll<Integer>(listView, adapter, initial, BUFFER, new LazyScrollListener<Integer>() {
 			@Override
-			public List<Integer> appendToEndOfList(int firstResult) {
+			public List<Integer> appendToTail(int firstResult) {
 				return generateList(firstResult, PAGESIZE+ firstResult);
 			}
 
 			@Override
-			public List<Integer> appendToStartOfList(int lastResult) {
+			public List<Integer> appendToHead(int lastResult) {
 				int start = (lastResult - PAGESIZE > 0 ? lastResult - PAGESIZE : 0);
 				return generateList(start, start + PAGESIZE);
 			}
